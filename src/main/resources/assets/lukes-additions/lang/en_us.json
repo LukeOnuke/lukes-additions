@@ -1,0 +1,10 @@
+{
+  "category.lukesAdditions.bot": "Bot",
+
+  "key.lukesAdditions.toggleUseBot": "Toggle Use Bot",
+  "key.lukesAdditions.toggleAttackBot": "Toggle Attack Bot",
+
+  "gui.lukesAdditions.toggleBot": "§bToggled §1%s§b bot.",
+  "gui.lukesAdditions.useBotName": "Use",
+  "gui.lukesAdditions.attackBotName": "Attack"
+}
