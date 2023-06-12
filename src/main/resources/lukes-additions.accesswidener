@@ -1,0 +1,3 @@
+accessWidener   v1  named
+# Remove final from ClientPlayerEntity to allow freecam to move freely
+mutable field net/minecraft/client/network/ClientPlayerEntity networkHandler public

@@ -1,30 +1,27 @@
 package com.lukeonuke.lukesadditions.bot;
 
+import com.lukeonuke.lukesadditions.additions.Toggleable;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 
-public abstract class ToggleableBotTarget {
+public abstract class ToggleableBotTarget extends Toggleable {
     @Getter
-    private MinecraftClient minecraftClient = MinecraftClient.getInstance();
-    @Getter
-    private boolean isActive = false;
+    private final MinecraftClient minecraftClient = MinecraftClient.getInstance();
 
     @Getter
     @Setter
     private int tickCounter = 0;
 
-    public boolean toggle(){
-        isActive = !isActive;
-
+    @Override
+    public void toggleEvent(){
         if(minecraftClient.player != null) minecraftClient.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleBot", Text.translatable(getName()).getString()));
-
-        return isActive;
     }
 
+
     public void tick(){
-        if(isActive){
+        if(isActive()){
             tickCounter++;
             target();
         }
