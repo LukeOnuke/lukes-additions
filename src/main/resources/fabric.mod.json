@@ -3,7 +3,7 @@
 	"id": "lukes-additions",
 	"version": "${version}",
 	"name": "Lukes Additions",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Little quality of life things.",
 	"accessWidener" : "lukes-additions.accesswidener",
 	"authors": [
 		"Me!"
@@ -12,7 +12,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0-only",
 	"icon": "assets/lukes-additions/icon.png",
 	"environment": "*",
 	"entrypoints": {
