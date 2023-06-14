@@ -51,7 +51,7 @@ public class LukesAdditions implements ModInitializer {
 
 		UseToggleableBotTarget useToggleableBotTarget = new UseToggleableBotTarget();
 		AttackToggleableBotTarget attackToggleableBotTarget = new AttackToggleableBotTarget();
-		FreeCam freeCam = new FreeCam();
+		FreeCam freeCam = FreeCam.getInstance();
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if(toggleUse.wasPressed()) useToggleableBotTarget.toggle();

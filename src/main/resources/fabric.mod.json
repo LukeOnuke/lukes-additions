@@ -6,15 +6,15 @@
 	"description": "Little quality of life things.",
 	"accessWidener" : "lukes-additions.accesswidener",
 	"authors": [
-		"Me!"
+		"lukeonuke"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/lukes-additions",
+		"sources": "https://github.com/LukeOnuke/lukes-additions"
 	},
 	"license": "GPL-3.0-only",
 	"icon": "assets/lukes-additions/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"com.lukeonuke.lukesadditions.LukesAdditions"
