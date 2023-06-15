@@ -16,7 +16,7 @@ public abstract class ToggleableBotTarget extends Toggleable {
 
     @Override
     public void toggleEvent(){
-        if(minecraftClient.player != null) minecraftClient.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleBot", Text.translatable(getName()).getString()));
+        if(minecraftClient.player != null) minecraftClient.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleBot", Text.translatable(getName()).getString()), true);
     }
 
 

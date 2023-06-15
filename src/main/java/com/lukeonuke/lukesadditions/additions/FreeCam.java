@@ -1,24 +1,16 @@
 package com.lukeonuke.lukesadditions.additions;
 
-import com.lukeonuke.lukesadditions.LukesAdditions;
 import com.lukeonuke.lukesadditions.additions.freecam.FreeCameraEntity;
 import com.lukeonuke.lukesadditions.mixin.PlayerEntityInvoker;
-import com.mojang.authlib.GameProfile;
+import lombok.Getter;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.input.Input;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerAbilities;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.BlockPos;
 
-import java.time.Duration;
 import java.util.Objects;
-import java.util.UUID;
 
 public class FreeCam extends Toggleable{
-    private final MinecraftClient client = MinecraftClient.getInstance();
 
     private FreeCam(){
 
@@ -26,52 +18,36 @@ public class FreeCam extends Toggleable{
 
     private static FreeCam instance;
 
+    @Getter
+    private FreeCameraEntity freeCameraEntity;
+
+    private Entity oldCamera;
+
     public static FreeCam getInstance() {
         if(instance == null) instance = new FreeCam();
         return instance;
     }
 
-    private ClientPlayNetworkHandler oldHandler;
-
     @Override
     public void toggleEvent() {
-//        Entity entity = client.cameraEntity;
-//        if(Objects.isNull(entity)) return;
-        //client.cameraEntity.noClip = isActive();
+        MinecraftClient client = MinecraftClient.getInstance();
         if(Objects.isNull(client.player)) return;
 
-        switchNetworkHandler(client.player);
+        if(isActive()){
+            freeCameraEntity = new FreeCameraEntity(client);
+            freeCameraEntity.spawn();
+            oldCamera = client.getCameraEntity();
+            client.setCameraEntity(freeCameraEntity);
+            client.player.input = new Input();
+        }else {
+            client.setCameraEntity(oldCamera);
+            freeCameraEntity.despawn();
+            client.player.input = freeCameraEntity.input;
+        }
 
-        client.setCameraEntity(new FreeCameraEntity(client));
+        client.chunkCullingEnabled = !isActive();
+        ((PlayerEntityInvoker) client.player).invokeGetAbilities().allowModifyWorld = !isActive();
 
-        PlayerEntityInvoker playerEntityInvoker = (PlayerEntityInvoker) client.cameraEntity;
-        PlayerAbilities playerAbilities = playerEntityInvoker.invokeGetAbilities();
-        playerAbilities.flying = isActive();
-        playerAbilities.allowFlying = isActive();
-        playerAbilities.allowModifyWorld = !isActive();
-
-        client.player.noClip = isActive();
-
-//        BlockPos pos = client.player.getBlockPos();
-//        client.cameraEntity.setPos(pos.getX() -5, pos.getY() -5, pos.getZ());
-
-        LukesAdditions.LOGGER.info("{}", client.cameraEntity);
-
-        client.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleFreeCam"));
-    }
-
-    private void switchNetworkHandler(ClientPlayerEntity clientPlayer){
-//        if(isActive()){
-//            oldHandler = clientPlayer.networkHandler;
-//            clientPlayer.networkHandler = new ClientPlayNetworkHandler(
-//                    client,
-//                    client.currentScreen,
-//                    client.getNetworkHandler().getConnection(),
-//                    client.getCurrentServerEntry(),
-//                    new GameProfile(UUID.randomUUID(), "FreeCam"),
-//                    client.getTelemetryManager().createWorldSession(false, Duration.ZERO, null));
-//        }else {
-//            clientPlayer.networkHandler = oldHandler;
-//        }
+        client.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleFreeCam"), true);
     }
 }

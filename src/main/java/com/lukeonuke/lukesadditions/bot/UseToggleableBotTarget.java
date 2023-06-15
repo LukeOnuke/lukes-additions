@@ -1,14 +1,13 @@
 package com.lukeonuke.lukesadditions.bot;
 
-import com.lukeonuke.lukesadditions.mixin.MinecraftClientMixin;
-import net.minecraft.client.MinecraftClient;
+import com.lukeonuke.lukesadditions.mixin.MinecraftClientInvoker;
 
 public class UseToggleableBotTarget extends ToggleableBotTarget {
 
     @Override
     void target() {
         if (getTickCounter() == 2) {
-            ((MinecraftClientMixin) getMinecraftClient()).invokeDoItemUse();
+            ((MinecraftClientInvoker) getMinecraftClient()).invokeDoItemUse();
             setTickCounter(0);
         }
     }

@@ -3,8 +3,18 @@
 	"package": "com.lukeonuke.lukesadditions.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"MinecraftClientInvoker",
+		"PlayerEntityInvoker",
+		"EntityMixin",
+		"InGameHudMixin",
+		"HeldItemRendererMixin",
+		"WorldRendererMixin",
+		"PlayerEntityRendererMixin",
+		"ClientPlayerInteractionManagerMixin",
+		"GameOptionsMixin",
 		"MinecraftClientMixin",
-		"PlayerEntityInvoker"
+		"EntityRenderDispatcherMixin",
+		"ClientPlayNetworkHandlerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

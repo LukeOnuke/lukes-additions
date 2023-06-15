@@ -4,7 +4,6 @@
 	"version": "${version}",
 	"name": "Lukes Additions",
 	"description": "Little quality of life things.",
-	"accessWidener" : "lukes-additions.accesswidener",
 	"authors": [
 		"lukeonuke"
 	],
@@ -28,8 +27,5 @@
 		"minecraft": "~1.20",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
