@@ -1,5 +1,6 @@
 package com.lukeonuke.lukesadditions.mixin;
 
+import com.lukeonuke.lukesadditions.LukesAdditions;
 import com.lukeonuke.lukesadditions.additions.FreeCam;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,5 +15,12 @@ public class MinecraftClientMixin {
     private void doItemPick(CallbackInfo ci) {
         if(!freeCam.isActive()) return;
         ci.cancel();
+    }
+
+    // Disable freecam on server disconnect or world change. If not done there are some interesting bugs.
+    @Inject(method = "disconnect", at = @At("HEAD"))
+    public void disconnect(CallbackInfo ci) {
+        if(!freeCam.isActive()) return;
+        freeCam.toggle();
     }
 }

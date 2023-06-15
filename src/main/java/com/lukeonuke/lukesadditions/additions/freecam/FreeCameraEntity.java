@@ -12,6 +12,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.player.PlayerAbilities;
+import net.minecraft.network.packet.Packet;
 import net.minecraft.stat.StatHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -31,7 +32,16 @@ public class FreeCameraEntity extends ClientPlayerEntity {
                         client.getNetworkHandler().getConnection(),
                         client.getCurrentServerEntry(),
                         new GameProfile(UUID.randomUUID(), "FreeCam"),
-                        client.getTelemetryManager().createWorldSession(false, Duration.ZERO, null)),
+                        client.getTelemetryManager().createWorldSession(false, Duration.ZERO, null)){
+                    // Do not send packets to server as this entity.
+                    // ----
+                    // As such the server doesn't know it exists and as such it poses no problems in
+                    // location duplication, etc.
+                    @Override
+                    public void sendPacket(Packet<?> packet) {
+
+                    }
+                },
 
                 client.player.getStatHandler(),
                 client.player.getRecipeBook(),
