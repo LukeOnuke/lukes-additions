@@ -12,7 +12,11 @@ public class AttackToggleableBotTarget extends ToggleableBotTarget{
     }
 
     @Override
-    String getName() {
+    public void toggleEvent() {
+
+    }
+    @Override
+    public String getNameKey() {
         return "gui.lukesAdditions.attackBotName";
     }
 }

@@ -1,6 +1,6 @@
 package com.lukeonuke.lukesadditions.mixin;
 
-import com.lukeonuke.lukesadditions.additions.FreeCam;
+import com.lukeonuke.lukesadditions.additions.freecam.FreeCam;
 import com.lukeonuke.lukesadditions.additions.freecam.FreeCameraEntity;
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;

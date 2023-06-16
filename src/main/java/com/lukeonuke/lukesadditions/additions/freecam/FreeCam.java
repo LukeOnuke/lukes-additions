@@ -1,6 +1,6 @@
-package com.lukeonuke.lukesadditions.additions;
+package com.lukeonuke.lukesadditions.additions.freecam;
 
-import com.lukeonuke.lukesadditions.additions.freecam.FreeCameraEntity;
+import com.lukeonuke.lukesadditions.additions.Toggleable;
 import com.lukeonuke.lukesadditions.mixin.PlayerEntityInvoker;
 import lombok.Getter;
 import net.minecraft.client.MinecraftClient;
@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 
 import java.util.Objects;
 
-public class FreeCam extends Toggleable{
+public class FreeCam extends Toggleable {
 
     private FreeCam(){
 
@@ -47,7 +47,10 @@ public class FreeCam extends Toggleable{
 
         client.chunkCullingEnabled = !isActive();
         ((PlayerEntityInvoker) client.player).invokeGetAbilities().allowModifyWorld = !isActive();
+    }
 
-        client.player.sendMessage(Text.translatable("gui.lukesAdditions.toggleFreeCam"), true);
+    @Override
+    public String getNameKey() {
+        return "gui.lukesAdditions.freeCamName";
     }
 }

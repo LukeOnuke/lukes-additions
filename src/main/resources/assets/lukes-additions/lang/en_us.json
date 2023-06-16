@@ -1,13 +1,18 @@
 {
-  "category.lukesAdditions.bot": "Bot",
+  "category.lukesAdditions.bot": "Lukes Additions - Bot",
+  "category.lukesAdditions.additions": "Lukes Additions - Additions",
 
   "key.lukesAdditions.toggleUseBot": "Toggle Use Bot",
   "key.lukesAdditions.toggleAttackBot": "Toggle Attack Bot",
   "key.lukesAdditions.toggleFreeCam": "Toggle FreeCam",
+  "key.lukesAdditions.toggleCinematic": "Toggle Cinematic FOV",
 
-  "gui.lukesAdditions.toggleBot": "§bToggled §1%s§b bot.",
-  "gui.lukesAdditions.useBotName": "Use",
-  "gui.lukesAdditions.attackBotName": "Attack",
+  "gui.lukesAdditions.toggle": "Toggled %s %s.",
+  "gui.lukesAdditions.toggleable.on": "§aON",
+  "gui.lukesAdditions.toggleable.off": "§cOFF",
 
-  "gui.lukesAdditions.toggleFreeCam": "§bToggled §1Freecam§r"
+  "gui.lukesAdditions.useBotName": "§9Use Timer Bot",
+  "gui.lukesAdditions.attackBotName": "§9Attack Timer Bot",
+  "gui.lukesAdditions.freeCamName": "§9FreeCam",
+  "gui.lukesAdditions.cinematicName": "§9Cinematic"
 }

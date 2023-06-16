@@ -1,6 +1,6 @@
 package com.lukeonuke.lukesadditions.mixin;
 
-import com.lukeonuke.lukesadditions.additions.FreeCam;
+import com.lukeonuke.lukesadditions.additions.freecam.FreeCam;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;

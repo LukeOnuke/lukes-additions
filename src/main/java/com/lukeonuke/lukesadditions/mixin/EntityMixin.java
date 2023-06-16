@@ -1,8 +1,6 @@
 package com.lukeonuke.lukesadditions.mixin;
 
-import com.lukeonuke.lukesadditions.LukesAdditions;
-import com.lukeonuke.lukesadditions.additions.FreeCam;
-import com.lukeonuke.lukesadditions.additions.freecam.FreeCameraEntity;
+import com.lukeonuke.lukesadditions.additions.freecam.FreeCam;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
