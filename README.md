@@ -3,7 +3,7 @@
 Lukes additions adds various quality of life client side improvements.
 
 Those improvements include:
-- Freecam
+- Freecam (no collision [clipping] freecam, just like spectator mode)
 - Timer use
 - Timer attack
 - Cinematic camera mode
